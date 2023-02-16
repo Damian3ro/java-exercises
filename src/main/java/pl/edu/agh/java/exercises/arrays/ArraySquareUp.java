@@ -12,6 +12,25 @@ package pl.edu.agh.java.exercises.arrays;
  */
 public class ArraySquareUp {
 	public int[] squareUp(int n) {
-		throw new UnsupportedOperationException();
+		if(n == 0) {
+			return new int[0];
+		}
+
+		int[] tab = new int[n*n];
+		int multiplier = n;
+
+		for(int i = multiplier; i > 0; i--) {
+			int initialNumber = 1;
+			for(int j = (n * multiplier)-1; j > (n * (multiplier-1))-1; j--) {
+				if(initialNumber <= multiplier) {
+					tab[j] = initialNumber;
+					initialNumber++;
+				} else {
+					tab[j] = 0;
+				}
+			}
+			multiplier--;
+		}
+		return tab;
 	}
 }
